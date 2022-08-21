@@ -1,0 +1,60 @@
+.box {
+    position: relative;
+    top: 0px;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    transform-style: preserve-3d;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(2600px) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(2600px) rotateY(360deg);
+    }
+}
+
+.box span {
+    position: absolute;
+    top: 0;
+    left: 10;
+    width: 80%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+}
+
+.box span img {
+    position: absolute;
+    top: 10;
+    left: 20;
+    object-fit: cover;
+    width: 100%;
+    -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, #0004);
+}
+
+@media only screen and (max-width: 600px) {
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .effect-2 {
+        height: 40px;
+        width: 40px;
+    }
+
+    .effect-3 {
+        display: hidden;
+    }
+
+    .box span {
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(150px);
+    }
+
+
+}
